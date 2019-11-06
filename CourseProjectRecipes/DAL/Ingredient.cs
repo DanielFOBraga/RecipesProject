@@ -56,6 +56,73 @@ namespace DAL
             }
 
         } 
+        public bool Update()
+        {
+            SqlConnection sqlConRecipes = new SqlConnection();
+            sqlConRecipes.ConnectionString =
+               Properties.Settings.Default.cnRecipes;
+
+            SqlCommand cmdUpdate = new SqlCommand();
+            cmdUpdate.Connection = sqlConRecipes; // definir a propriedade do objeto
+            cmdUpdate.CommandText = "Update_Ingredient";
+            cmdUpdate.CommandType = System.Data.CommandType.StoredProcedure;
+
+            SqlParameter parameterID = new SqlParameter();
+            parameterID.ParameterName = "@idIngredient";
+            parameterID.Value = _id;
+            cmdUpdate.Parameters.Add(parameterID);
+
+            SqlParameter parameterName = new SqlParameter();
+            parameterName.ParameterName = "@NewName";
+            parameterName.Value = _name;
+            cmdUpdate.Parameters.Add(parameterName);
+
+            sqlConRecipes.Open();
+
+            int nrlines = cmdUpdate.ExecuteNonQuery();
+
+            sqlConRecipes.Close();
+
+            if (nrlines == -1) //Quando se usa um storeprocedure devolve um nr de linhas -1
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool Delete()
+        {
+            SqlConnection sqlConRecipes = new SqlConnection();
+            sqlConRecipes.ConnectionString =
+               Properties.Settings.Default.cnRecipes;
+
+            SqlCommand cmdDelete = new SqlCommand();
+            cmdDelete.Connection = sqlConRecipes; // definir a propriedade do objeto
+            cmdDelete.CommandText = "Delete_Ingredient";
+            cmdDelete.CommandType = System.Data.CommandType.StoredProcedure;
+            
+            SqlParameter parameterID = new SqlParameter();
+            parameterID.ParameterName = "@idIngredient";
+            parameterID.Value = _id;
+            cmdDelete.Parameters.Add(parameterID);
+
+            sqlConRecipes.Open();
+
+            int nrlines = cmdDelete.ExecuteNonQuery();
+
+            sqlConRecipes.Close();
+
+            if (nrlines >0) //When deleting the stored procedure returns the number of lines deleted
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         #endregion
     }
     public class Ingredients
