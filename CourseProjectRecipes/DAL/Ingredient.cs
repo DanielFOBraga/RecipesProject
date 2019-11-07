@@ -10,6 +10,21 @@ namespace DAL
 {
     public class Ingredient
     {
+        #region Constructor
+        /// <summary>
+        /// It's the constructor with one argument
+        /// </summary>
+        /// <param name="NewIngredientName">
+        /// It's the name of the new ingredient
+        /// </param>
+        public Ingredient(string NewIngredientName)
+        {
+            _name = NewIngredientName;
+        }                
+        public Ingredient()
+        {
+        }
+        #endregion
         #region Attributes
         private int _id;       
         private string _name; 
@@ -127,10 +142,12 @@ namespace DAL
     }
     public class Ingredients
     {
-        List<Ingredient> _ListIngredients; //criar o objeto
+        #region Attributes
+        List<Ingredient> _ListIngredients; //declarar o objeto
+        #endregion
         public List<Ingredient> ListAll()
         {
-            _ListIngredients = new List<Ingredient>(); //instanciar o objeto
+            _ListIngredients = new List<Ingredient>(); //criar o objeto
             SqlConnection sqlConnection = new SqlConnection(
                 Properties.Settings.Default.cnRecipes); //criar a ligação à base de dados
             SqlCommand sqlListAllIngredients = new SqlCommand(
