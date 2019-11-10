@@ -46,16 +46,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmCuisineTypesAndDishTypes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCuisineTypesAndDishTypes.Designer.cs">
+      <DependentUpon>frmCuisineTypesAndDishTypes.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmIngredient.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmIngredient.Designer.cs">
       <DependentUpon>frmIngredient.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmMeasurementUnit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMeasurementUnit.Designer.cs">
+      <DependentUpon>frmMeasurementUnit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmCuisineTypesAndDishTypes.resx">
+      <DependentUpon>frmCuisineTypesAndDishTypes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmIngredient.resx">
       <DependentUpon>frmIngredient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMeasurementUnit.resx">
+      <DependentUpon>frmMeasurementUnit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

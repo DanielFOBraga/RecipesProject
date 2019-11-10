@@ -64,14 +64,6 @@ namespace RecipesWin
                 MessageBox.Show("Error updating ingredient");
             }            
         }
-        private void LoadComboBox()
-        {
-            Ingredients Listingredients = new Ingredients();
-            cbbIngredients.DataSource = Listingredients.ListAll();
-            cbbIngredients.DisplayMember = "Name";
-            cbbIngredients.ValueMember = "Id";
-        }
-
         private void buttonDeleteIngredient_Click(object sender, EventArgs e)
         {
             Ingredient ingredientToDelete = new Ingredient();
@@ -86,6 +78,13 @@ namespace RecipesWin
             {
                 MessageBox.Show("An error occurred, ingredient was not deleted");
             }
+        }
+        private void LoadComboBox()
+        {
+            Ingredients Listingredients = new Ingredients();
+            cbbIngredients.DataSource = Listingredients.ListAll();
+            cbbIngredients.DisplayMember = "Name";
+            cbbIngredients.ValueMember = "Id";
         }
     }
 }

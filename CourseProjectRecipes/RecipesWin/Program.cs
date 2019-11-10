@@ -16,7 +16,7 @@ namespace RecipesWin
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmIngredient());
+            Application.Run(new frmCuisineTypesAndDishTypes());
         }
     }
 }
