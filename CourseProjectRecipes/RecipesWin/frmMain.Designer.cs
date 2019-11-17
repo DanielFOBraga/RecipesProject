@@ -60,7 +60,7 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -86,12 +86,14 @@
             this.manageMeasurementUnitsToolStripMenuItem.Name = "manageMeasurementUnitsToolStripMenuItem";
             this.manageMeasurementUnitsToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
             this.manageMeasurementUnitsToolStripMenuItem.Text = "Manage Measurement Units";
+            this.manageMeasurementUnitsToolStripMenuItem.Click += new System.EventHandler(this.manageMeasurementUnitsToolStripMenuItem_Click);
             // 
             // manageCuisineTypesAndDishTypesToolStripMenuItem
             // 
             this.manageCuisineTypesAndDishTypesToolStripMenuItem.Name = "manageCuisineTypesAndDishTypesToolStripMenuItem";
             this.manageCuisineTypesAndDishTypesToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
             this.manageCuisineTypesAndDishTypesToolStripMenuItem.Text = "Manage Cuisine Types and Dish Types";
+            this.manageCuisineTypesAndDishTypesToolStripMenuItem.Click += new System.EventHandler(this.manageCuisineTypesAndDishTypesToolStripMenuItem_Click);
             // 
             // frmMain
             // 
@@ -102,7 +104,7 @@
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmMain";
-            this.Text = "frmMain";
+            this.Text = "Recipes Portal Management";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

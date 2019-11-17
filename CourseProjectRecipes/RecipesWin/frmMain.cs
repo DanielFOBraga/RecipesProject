@@ -33,5 +33,19 @@ namespace RecipesWin
             frmIngredient.MdiParent = this;
             frmIngredient.Show();
         }
+
+        private void manageMeasurementUnitsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmMeasurementUnit frmMeasurementUnit = new frmMeasurementUnit();
+            frmMeasurementUnit.MdiParent = this;
+            frmMeasurementUnit.Show();
+        }
+
+        private void manageCuisineTypesAndDishTypesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCuisineTypesAndDishTypes frmCuisineTypesAndDishTypes = new frmCuisineTypesAndDishTypes();
+            frmCuisineTypesAndDishTypes.MdiParent = this;
+            frmCuisineTypesAndDishTypes.Show();
+        }
     }
 }
