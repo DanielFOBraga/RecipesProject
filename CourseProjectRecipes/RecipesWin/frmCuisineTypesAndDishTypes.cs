@@ -21,6 +21,7 @@ namespace RecipesWin
 
         private void buttonInsertCuisineType_Click(object sender, EventArgs e)
         {
+            _flag = false;
             CuisineType cuisineType = new CuisineType(txtInsertCuisineType.Text);
             if (cuisineType.Insert())
             {
@@ -31,6 +32,7 @@ namespace RecipesWin
             {
                 MessageBox.Show("Error inserting cuisine type");
             }
+            _flag = true;
         }
         private void cbbCuisineType_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -40,7 +42,7 @@ namespace RecipesWin
             }
         }
         private void buttonUpdateCuisineType_Click(object sender, EventArgs e)
-        {
+        {            
             CuisineType cuisineTypeToUpdate = new CuisineType();
             cuisineTypeToUpdate.IdCuisine = (int)cbbCuisineType.SelectedValue;
             cuisineTypeToUpdate.CuisineTypeName = txtUpdateDeleteCuisineType.Text;
@@ -86,6 +88,7 @@ namespace RecipesWin
         #region Dish Category
         private void buttonInsertDishCategory_Click(object sender, EventArgs e)
         {
+            _flag = false;
             DishCategory dishCategoryToInsert = new DishCategory(txtInsertDishCategory.Text);
             if (dishCategoryToInsert.Insert())
             {
@@ -96,6 +99,7 @@ namespace RecipesWin
             {
                 MessageBox.Show("An error occurred, dish category was not inserted");
             }
+            _flag = true;
         }
         private void cbbDishCategory_SelectedValueChanged(object sender, EventArgs e)
         {

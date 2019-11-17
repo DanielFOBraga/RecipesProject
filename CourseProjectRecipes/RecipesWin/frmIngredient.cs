@@ -21,6 +21,7 @@ namespace RecipesWin
 
         private void buttonInsertIngredient_Click(object sender, EventArgs e)
         {
+            _flag = false;
             Ingredient newingredient = new Ingredient();
             newingredient.Name = txtIngredient.Text;
             if (newingredient.Insert())
@@ -31,7 +32,8 @@ namespace RecipesWin
             else
             {
                 MessageBox.Show("An error occurred, ingredient was not inserted");
-            }            
+            }
+            _flag = true;
         }
 
         private void frmIngredient_Load(object sender, EventArgs e)
@@ -50,7 +52,7 @@ namespace RecipesWin
         }
 
         private void buttonIngredientUpdate_Click(object sender, EventArgs e)
-        {            
+        {
             Ingredient UpdatedIngredient = new Ingredient();
             UpdatedIngredient.Id = (int)cbbIngredients.SelectedValue;
             UpdatedIngredient.Name = txtUpdateIngredient.Text;
@@ -62,7 +64,7 @@ namespace RecipesWin
             else
             {
                 MessageBox.Show("Error updating ingredient");
-            }            
+            }
         }
         private void buttonDeleteIngredient_Click(object sender, EventArgs e)
         {
