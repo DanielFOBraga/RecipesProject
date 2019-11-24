@@ -36,6 +36,7 @@ namespace RecipesWin
         {
             LoadComboBoxDifficultyRange();
             LoadComboBoxCostRange();
+            LoadComboBoxTimeToMake();
             _flag = true;
         }
         private void buttonUpdateDifficulty_Click(object sender, EventArgs e)
@@ -141,6 +142,62 @@ namespace RecipesWin
             cbbCostRange.DisplayMember = "Cost";
             cbbCostRange.ValueMember = "IDcost";
         }
-        #endregion        
+        #endregion
+        #region Time Range        
+        private void buttonInsertTimeRange_Click(object sender, EventArgs e)
+        {
+            TimeToMake timeRangeToInsert = new TimeToMake(txtInsertTimeRange.Text);
+            if (timeRangeToInsert.Insert())
+            {
+                MessageBox.Show("Time range added successfully");
+            }
+            else
+            {
+                MessageBox.Show("Error inserting time range");
+            }
+        }
+        private void cbbTimeRange_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (_flag)
+            {
+                txtUpdateDeleteTimeRange.Text = cbbTimeRange.Text;
+            }
+        }
+        private void buttonUpdateTimeRange_Click(object sender, EventArgs e)
+        {
+            TimeToMake timeRangeToUpdate = new TimeToMake();
+            timeRangeToUpdate.IdTimeToMake = (int)cbbTimeRange.SelectedValue;
+            timeRangeToUpdate.Time = txtUpdateDeleteTimeRange.Text;
+            if (timeRangeToUpdate.Update())
+            {
+                MessageBox.Show("Time range updated successfully");
+            }
+            else
+            {
+                MessageBox.Show("Error updating time range");
+            }
+            LoadComboBoxTimeToMake();
+        }
+        private void buttonDeleteTimeRange_Click(object sender, EventArgs e)
+        {
+            TimeToMake timeRangeToDelete = new TimeToMake();
+            timeRangeToDelete.IdTimeToMake = (int)cbbTimeRange.SelectedValue;
+            if (timeRangeToDelete.Delete())
+            {
+                MessageBox.Show("Time range deleted successfully");
+            }
+            else
+            {
+                MessageBox.Show("Error deleted time range");
+            }
+        }
+        private void LoadComboBoxTimeToMake()
+        {
+            TimesToMake timesToMake = new TimesToMake();
+            cbbTimeRange.DataSource = timesToMake.ListAllTimesToMake();
+            cbbTimeRange.DisplayMember = "Time";
+            cbbTimeRange.ValueMember = "IdTimeToMake";
+        }
+        #endregion
     }
 }

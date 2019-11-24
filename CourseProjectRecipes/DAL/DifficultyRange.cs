@@ -73,6 +73,7 @@ namespace DAL
                     Properties.Settings.Default.cnRecipes;
 
             SqlCommand cmdUpdate = new SqlCommand("Update_DifficultyRange", sqlConRecipes);
+            cmdUpdate.CommandType = System.Data.CommandType.StoredProcedure;
 
             cmdUpdate.Parameters.Add(new SqlParameter("@idDifficulty", _idDifficulty));
             cmdUpdate.Parameters.Add(new SqlParameter("@DificultyRange", _DifficultyRange));

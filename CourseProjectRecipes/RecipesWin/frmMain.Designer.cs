@@ -46,7 +46,7 @@
             this.manageRecipesPortalToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1084, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -79,36 +79,36 @@
             // manageIngredientToolStripMenuItem
             // 
             this.manageIngredientToolStripMenuItem.Name = "manageIngredientToolStripMenuItem";
-            this.manageIngredientToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
+            this.manageIngredientToolStripMenuItem.Size = new System.Drawing.Size(332, 22);
             this.manageIngredientToolStripMenuItem.Text = "Manage Ingredient";
             this.manageIngredientToolStripMenuItem.Click += new System.EventHandler(this.manageIngredientToolStripMenuItem_Click);
             // 
             // manageMeasurementUnitsToolStripMenuItem
             // 
             this.manageMeasurementUnitsToolStripMenuItem.Name = "manageMeasurementUnitsToolStripMenuItem";
-            this.manageMeasurementUnitsToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
+            this.manageMeasurementUnitsToolStripMenuItem.Size = new System.Drawing.Size(332, 22);
             this.manageMeasurementUnitsToolStripMenuItem.Text = "Manage Measurement Units";
             this.manageMeasurementUnitsToolStripMenuItem.Click += new System.EventHandler(this.manageMeasurementUnitsToolStripMenuItem_Click);
             // 
             // manageCuisineTypesAndDishTypesToolStripMenuItem
             // 
             this.manageCuisineTypesAndDishTypesToolStripMenuItem.Name = "manageCuisineTypesAndDishTypesToolStripMenuItem";
-            this.manageCuisineTypesAndDishTypesToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
+            this.manageCuisineTypesAndDishTypesToolStripMenuItem.Size = new System.Drawing.Size(332, 22);
             this.manageCuisineTypesAndDishTypesToolStripMenuItem.Text = "Manage Cuisine Types and Dish Types";
             this.manageCuisineTypesAndDishTypesToolStripMenuItem.Click += new System.EventHandler(this.manageCuisineTypesAndDishTypesToolStripMenuItem_Click);
             // 
             // manageCostAndDifficultyRangesToolStripMenuItem
             // 
             this.manageCostAndDifficultyRangesToolStripMenuItem.Name = "manageCostAndDifficultyRangesToolStripMenuItem";
-            this.manageCostAndDifficultyRangesToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
-            this.manageCostAndDifficultyRangesToolStripMenuItem.Text = "Manage Cost and Difficulty Ranges";
+            this.manageCostAndDifficultyRangesToolStripMenuItem.Size = new System.Drawing.Size(332, 22);
+            this.manageCostAndDifficultyRangesToolStripMenuItem.Text = "Manage Cost, Difficulty Ranges and Time Ranges";
             this.manageCostAndDifficultyRangesToolStripMenuItem.Click += new System.EventHandler(this.manageCostAndDifficultyRangesToolStripMenuItem_Click);
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1084, 661);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
