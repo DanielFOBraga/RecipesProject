@@ -47,5 +47,12 @@ namespace RecipesWin
             frmCuisineTypesAndDishTypes.MdiParent = this;
             frmCuisineTypesAndDishTypes.Show();
         }
+
+        private void manageCostAndDifficultyRangesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDifficultyRangeAndCostRange frmDifficultyRangeAndCostRange = new frmDifficultyRangeAndCostRange();
+            frmDifficultyRangeAndCostRange.MdiParent = this;
+            frmDifficultyRangeAndCostRange.Show();
+        }
     }
 }

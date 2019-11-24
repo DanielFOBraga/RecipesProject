@@ -35,6 +35,7 @@
             this.manageIngredientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageMeasurementUnitsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageCuisineTypesAndDishTypesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageCostAndDifficultyRangesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,7 +70,8 @@
             this.manageRecipesPortalToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.manageIngredientToolStripMenuItem,
             this.manageMeasurementUnitsToolStripMenuItem,
-            this.manageCuisineTypesAndDishTypesToolStripMenuItem});
+            this.manageCuisineTypesAndDishTypesToolStripMenuItem,
+            this.manageCostAndDifficultyRangesToolStripMenuItem});
             this.manageRecipesPortalToolStripMenuItem.Name = "manageRecipesPortalToolStripMenuItem";
             this.manageRecipesPortalToolStripMenuItem.Size = new System.Drawing.Size(139, 20);
             this.manageRecipesPortalToolStripMenuItem.Text = "Manage Recipes Portal";
@@ -94,6 +96,13 @@
             this.manageCuisineTypesAndDishTypesToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
             this.manageCuisineTypesAndDishTypesToolStripMenuItem.Text = "Manage Cuisine Types and Dish Types";
             this.manageCuisineTypesAndDishTypesToolStripMenuItem.Click += new System.EventHandler(this.manageCuisineTypesAndDishTypesToolStripMenuItem_Click);
+            // 
+            // manageCostAndDifficultyRangesToolStripMenuItem
+            // 
+            this.manageCostAndDifficultyRangesToolStripMenuItem.Name = "manageCostAndDifficultyRangesToolStripMenuItem";
+            this.manageCostAndDifficultyRangesToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
+            this.manageCostAndDifficultyRangesToolStripMenuItem.Text = "Manage Cost and Difficulty Ranges";
+            this.manageCostAndDifficultyRangesToolStripMenuItem.Click += new System.EventHandler(this.manageCostAndDifficultyRangesToolStripMenuItem_Click);
             // 
             // frmMain
             // 
@@ -121,5 +130,6 @@
         private System.Windows.Forms.ToolStripMenuItem manageIngredientToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manageMeasurementUnitsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manageCuisineTypesAndDishTypesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem manageCostAndDifficultyRangesToolStripMenuItem;
     }
 }

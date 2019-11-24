@@ -52,6 +52,12 @@
     <Compile Include="frmCuisineTypesAndDishTypes.Designer.cs">
       <DependentUpon>frmCuisineTypesAndDishTypes.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDifficultyRangeAndCostRange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDifficultyRangeAndCostRange.Designer.cs">
+      <DependentUpon>frmDifficultyRangeAndCostRange.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmIngredient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +80,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmCuisineTypesAndDishTypes.resx">
       <DependentUpon>frmCuisineTypesAndDishTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDifficultyRangeAndCostRange.resx">
+      <DependentUpon>frmDifficultyRangeAndCostRange.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmIngredient.resx">
       <DependentUpon>frmIngredient.cs</DependentUpon>

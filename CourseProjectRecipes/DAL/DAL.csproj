@@ -41,7 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CostRange.cs" />
     <Compile Include="CuisineType.cs" />
+    <Compile Include="DifficultyRange.cs" />
     <Compile Include="DishCategory.cs" />
     <Compile Include="Ingredient.cs" />
     <Compile Include="MeasurementUnit.cs" />
