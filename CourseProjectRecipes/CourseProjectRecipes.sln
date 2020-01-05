@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipesWin", "RecipesWin\Re
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{B5459021-2A01-4FCB-9A5F-F97815CD34F0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPage", "WebPage\WebPage.csproj", "{FCFE3EF2-EBDF-4803-849A-B8A91C5CEBA8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{B5459021-2A01-4FCB-9A5F-F97815CD34F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B5459021-2A01-4FCB-9A5F-F97815CD34F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B5459021-2A01-4FCB-9A5F-F97815CD34F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCFE3EF2-EBDF-4803-849A-B8A91C5CEBA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCFE3EF2-EBDF-4803-849A-B8A91C5CEBA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCFE3EF2-EBDF-4803-849A-B8A91C5CEBA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCFE3EF2-EBDF-4803-849A-B8A91C5CEBA8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
