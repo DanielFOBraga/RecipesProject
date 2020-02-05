@@ -25,79 +25,67 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <!-- Page Preloder -->
-    <div id="preloder">
-        <div class="loader"></div>
-    </div>
-
-    <!-- Header Section Begin -->
-    <header class="header-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 offset-md-2">
-                    <div class="logo">
-                        <a href="./index.aspx">
-                            <img src="img/Logos/logo.png" alt=""></a>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="Userlogin">
-                    </div>
-                </div>
-            </div>
-            <div class="nav-menu">
-                <nav class="main-menu mobile-menu">
-                    <ul>
-                        <li class="active"><a href="index.aspx">Home</a>
-                            <ul class="sub-menu">
-                                <li><a href="AboutMe.aspx">About Me</a></li>
-                                <li><a href="Recipe.aspx">Search by Category</a></li>
-                                <li><a href="categories.aspx">View All Recipes</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="categories.aspx">View All Recipes</a></li>
-                        <li>
-                            <asp:LoginView ID="LoginView1" runat="server">
-                                <AnonymousTemplate>
-                                    <a href="LoginUser.aspx">Sign In</a>
-                                </AnonymousTemplate>
-                                <LoggedInTemplate>
-                                    <asp:LoginStatus ID="LoginStatus1" runat="server" />
-                                </LoggedInTemplate>
-                            </asp:LoginView>
-                        </li>
-                        <li>
-                            <asp:LoginView ID="LoginView2" runat="server">
-                                <AnonymousTemplate>
-                                    <a href="UserRegister.aspx">Sign Up</a>
-                                </AnonymousTemplate>
-                                <LoggedInTemplate>
-                                    <a href="#">Account Management</a>
-                                </LoggedInTemplate>
-                            </asp:LoginView>
-                        </li>
-                        <li>
-                            <asp:LoginView ID="LoginView3" runat="server">
-                                <LoggedInTemplate>
-                                    <a href="#">Insert Recipe</a>
-                                </LoggedInTemplate>
-                            </asp:LoginView>
-                        </li>
-                        <li><a href="AboutMe.aspx">About</a></li>
-                    </ul>
-
-                </nav>
-
-                <div class="nav-right search-switch">
-                    <i class="fa fa-search"></i>
-                </div>
-            </div>
-            <div id="mobile-menu-wrap"></div>
-        </div>
-    </header>
-    <!-- Header End -->
-
     <form id="form1" runat="server">
+        <!-- Page Preloder -->
+        <div id="preloder">
+            <div class="loader"></div>
+        </div>
+
+        <!-- Header Section Begin -->
+        <header class="header-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 offset-md-2">
+                        <div class="logo">
+                            <a href="./index.aspx">
+                                <img src="img/Logos/logo.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="Userlogin">
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-menu">
+                    <nav class="main-menu mobile-menu">
+                        <ul>
+                            <li class="active"><a href="index.aspx">Home</a>
+                                <ul class="sub-menu">
+                                    <li><a href="AboutMe.aspx">About Me</a></li>
+                                    <li><a href="Recipe.aspx">Search by Category</a></li>
+                                    <li><a href="categories.aspx">View All Recipes</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="categories.aspx">View All Recipes</a></li>
+                            <li><a href="AboutMe.aspx">About</a></li>
+                            <li>
+                                <asp:LoginView ID="LoginView1" runat="server">
+                                    <AnonymousTemplate>
+                                        <a href="LoginUser.aspx">Sign In</a></li>
+                                        <li><a href="UserRegister.aspx">Sign Up</a></li>
+                                    </AnonymousTemplate>
+                                    <LoggedInTemplate>
+                                        <a href="InsertRecipe.aspx">Insert Recipe</a></li>
+                                        <li><a href="#">Account Management</a></li>
+                                        <li>
+                                            <asp:LoginStatus ID="LoginStatus1" runat="server" />
+                                    </LoggedInTemplate>
+                                </asp:LoginView>
+                            </li>
+                            <li>
+                                <div class="search-switch">
+                                    <i class="fa fa-search"></i>
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>
+
+                </div>
+            <div id="mobile-menu-wrap"></div>
+            </div>
+        </header>
+        <!-- Header End -->
+
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>

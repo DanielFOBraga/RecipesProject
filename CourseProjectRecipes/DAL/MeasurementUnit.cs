@@ -26,6 +26,20 @@ namespace DAL
             set { _mesurementUnitName = value; }
         }
         #endregion
+        #region Constructors
+        public MeasurementUnit()
+        {            
+        }
+        public MeasurementUnit(string Name)
+        {            
+            _mesurementUnitName = Name;
+        }
+        public MeasurementUnit(int newId, string Name)
+        {
+            _measurementUnitid = newId;
+            _mesurementUnitName = Name;
+        }
+        #endregion
         #region Methods
         public bool InsertMeasurementUnit()
         {

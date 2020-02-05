@@ -20,7 +20,12 @@ namespace DAL
         public Ingredient(string NewIngredientName)
         {
             _name = NewIngredientName;
-        }                
+        }
+        public Ingredient(int NewIngredientId, string NewIngredientName)
+        {
+            _id = NewIngredientId;
+            _name = NewIngredientName;
+        }
         public Ingredient()
         {
         }

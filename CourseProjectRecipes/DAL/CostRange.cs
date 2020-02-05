@@ -37,6 +37,11 @@ namespace DAL
         {
             _cost = NewCostLevel;
         }
+        public CostRange(int NewId, string NewCostLevel)
+        {
+            _idCostRange = NewId;
+            _cost = NewCostLevel;
+        }
         #endregion
         #region Methods
         public bool Insert()

@@ -129,6 +129,7 @@
     <Content Include="img\top-recipe\recipe-4.jpg" />
     <Content Include="img\top-recipe\recipe-5.jpg" />
     <Content Include="index.aspx" />
+    <Content Include="InsertRecipe.aspx" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\jquery-3.3.1.min.js" />
     <Content Include="js\jquery.nice-select.min.js" />
@@ -232,6 +233,13 @@
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="InsertRecipe.aspx.cs">
+      <DependentUpon>InsertRecipe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InsertRecipe.aspx.designer.cs">
+      <DependentUpon>InsertRecipe.aspx</DependentUpon>
+    </Compile>
     <Compile Include="LoginUser.aspx.cs">
       <DependentUpon>LoginUser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -272,6 +280,7 @@
     <Content Include="fonts\FontAwesome.otf" />
     <None Include="packages.config" />
     <Content Include="RecipesPortalMaster.Master" />
+    <Content Include="RegisteredUsers\Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -291,6 +300,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{B5459021-2A01-4FCB-9A5F-F97815CD34F0}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

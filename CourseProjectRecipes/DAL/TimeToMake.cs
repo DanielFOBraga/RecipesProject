@@ -37,6 +37,11 @@ namespace DAL
         {
             _timeToMake = NewTimeToMake;
         }
+        public TimeToMake(int NewIdTimeToMake, string NewTimeToMake)
+        {
+            _idTimeToMake = NewIdTimeToMake;
+            _timeToMake = NewTimeToMake;
+        }
         #endregion
         #region Methods
         public bool Insert()

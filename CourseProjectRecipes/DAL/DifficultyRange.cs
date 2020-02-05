@@ -38,6 +38,15 @@ namespace DAL
         {
             _DifficultyRange = NewDifficultyCategory;
         }
+        public DifficultyRange(int idDifficulty)
+        {
+            _idDifficulty = idDifficulty;
+        }
+        public DifficultyRange(int idDifficulty, string NewDifficultyCategory)
+        {
+            _idDifficulty = idDifficulty;
+            _DifficultyRange = NewDifficultyCategory;
+        }
         #endregion
         #region Methods
         public bool Insert()
