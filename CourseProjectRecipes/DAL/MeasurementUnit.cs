@@ -39,6 +39,10 @@ namespace DAL
             _measurementUnitid = newId;
             _mesurementUnitName = Name;
         }
+        public MeasurementUnit(int newId)
+        {
+            _measurementUnitid = newId;
+        }
         #endregion
         #region Methods
         public bool InsertMeasurementUnit()

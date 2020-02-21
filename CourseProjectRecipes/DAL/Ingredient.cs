@@ -26,6 +26,10 @@ namespace DAL
             _id = NewIngredientId;
             _name = NewIngredientName;
         }
+        public Ingredient(int NewIngredientId)
+        {
+            _id = NewIngredientId;
+        }
         public Ingredient()
         {
         }

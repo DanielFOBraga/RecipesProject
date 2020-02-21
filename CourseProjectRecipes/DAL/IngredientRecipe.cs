@@ -45,6 +45,7 @@ namespace DAL
         }
         #endregion
         #region Constructors
+        public IngredientRecipe() { }
         public IngredientRecipe(decimal Quantity, Ingredient ingredient, MeasurementUnit measurementUnit)
         {
             _quantity = Quantity;

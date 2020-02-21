@@ -81,7 +81,7 @@
                     </nav>
 
                 </div>
-            <div id="mobile-menu-wrap"></div>
+                <div id="mobile-menu-wrap"></div>
             </div>
         </header>
         <!-- Header End -->
@@ -90,6 +90,21 @@
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
+
+        <!-- Search model -->
+        <div class="search-model">
+            <div class="h-100 d-flex align-items-center justify-content-center">
+                <div class="search-close-switch">+</div>
+                <div class="search-model-form">
+                    <asp:TextBox ID="TextBoxSearchInput" runat="server" placeholder="Search here....."></asp:TextBox>
+                    <%--<input type="text" id="search-input" placeholder="Search here.....">--%>
+                </div>
+                <div>
+                    <asp:Button ID="ButtonSearchRecipe" runat="server" Text="Search" class="btn" OnClick="ButtonSearchRecipe_Click"/>
+                </div>
+            </div>
+        </div>
+
     </form>
 
     <!-- Footer Section Begin -->
@@ -136,15 +151,8 @@
     </footer>
     <!-- Footer Section End -->
 
-    <!-- Search model -->
-    <div class="search-model">
-        <div class="h-100 d-flex align-items-center justify-content-center">
-            <div class="search-close-switch">+</div>
-            <div class="search-model-form">
-                <input type="text" id="search-input" placeholder="Search here.....">
-            </div>
-        </div>
-    </div>
+
+
     <!-- Search model end -->
 
     <!-- Js Plugins -->

@@ -107,6 +107,7 @@ namespace WebPage
 
             recipe.Insert();
             Session["newRecipe"] = null;
+
         }
 
         protected void ButtonAddRecipeStep_Click(object sender, EventArgs e)

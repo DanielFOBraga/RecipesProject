@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -17,6 +18,12 @@ namespace WebPage
         protected void Unnamed_Click(object sender, EventArgs e)
         {
 
+        }
+
+        protected void ButtonSearchRecipe_Click(object sender, EventArgs e)
+        {
+
+            Response.Redirect(@"~\RecipesSearchResults.aspx?nameRecipe=" + TextBoxSearchInput.Text);
         }
     }
 }

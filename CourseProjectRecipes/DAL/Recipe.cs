@@ -16,6 +16,7 @@ namespace DAL
         private int _nrDoses;
         private bool _valid;
         private MembershipUser _user;
+        private Guid _userID;
         private DateTime _creationDate;
         private CuisineType _cuisineType;
         private List<DishCategory> _dishCategories;
@@ -106,6 +107,134 @@ namespace DAL
             _ingredientRecipe = new List<IngredientRecipe>();
             _dishCategories = new List<DishCategory>();
         }
+        public Recipe(int recipeId)
+        {
+            _idRecipe = recipeId;
+
+            _recipesteps = new List<RecipeStep>();
+            _ingredientRecipe = new List<IngredientRecipe>();
+            _dishCategories = new List<DishCategory>();
+
+            SqlConnection sqlConRecipes = new SqlConnection(
+                Properties.Settings.Default.cnRecipes);
+
+            SqlCommand cmdRetrieveRecipe = new SqlCommand(); //criar e instanciar objeto do tipo SqlCommand
+            cmdRetrieveRecipe.Connection = sqlConRecipes; // definir a propriedade do objeto
+            cmdRetrieveRecipe.CommandText = "List_Recipe_From_Id";
+            cmdRetrieveRecipe.CommandType = System.Data.CommandType.StoredProcedure;
+
+            cmdRetrieveRecipe.Parameters.Add(new SqlParameter("@recipeId", _idRecipe));
+
+            sqlConRecipes.Open();
+
+            SqlDataReader drRecipe = cmdRetrieveRecipe.ExecuteReader();
+
+            while (drRecipe.Read())
+            {
+                _nameRecipe = drRecipe[1].ToString();
+                _nrDoses = (int)drRecipe[2];
+                _valid = (bool)drRecipe[3];
+                _userID = (Guid)drRecipe[4];               
+                _creationDate = (DateTime)drRecipe[5];                 
+                _cuisineType = new CuisineType((int)drRecipe[6]);
+                _dificulty = new DifficultyRange((int)drRecipe[7]); //repair in DifficultyRange
+                _cost = (CostRange)drRecipe[8];
+                _timeToMake = (TimeToMake)drRecipe[9];
+                _UserRating = (decimal)drRecipe[10];
+            }
+
+            //Retrieve Ingredientline
+
+            SqlCommand cmdRetrieveIngredientLine = new SqlCommand();
+            cmdRetrieveIngredientLine.Connection = sqlConRecipes;
+            cmdRetrieveIngredientLine.CommandText = "List_All_IngredientRecipeFromRecipe";
+            cmdRetrieveIngredientLine.CommandType = System.Data.CommandType.StoredProcedure;
+
+            cmdRetrieveIngredientLine.Parameters.Add(new SqlParameter("@idRecipe", _idRecipe));
+
+            SqlDataReader drIngredientLine = cmdRetrieveIngredientLine.ExecuteReader();
+
+            while (drIngredientLine.Read())
+            {
+                IngredientRecipe newIngredientRecipe = new IngredientRecipe();
+                newIngredientRecipe.IdIngredientRecipe = (int)drIngredientLine[0];
+                newIngredientRecipe.Ingredient = new Ingredient((int)drIngredientLine[1]); //creating new ingredient with constructor using StoredProcedure result                
+                newIngredientRecipe.IdRecipe = (int)drIngredientLine[2];
+                newIngredientRecipe.Quantity = (decimal)drIngredientLine[3];
+                newIngredientRecipe.MeasurementUnit = new MeasurementUnit((int)drIngredientLine[4]); //creating new ingredient with constructor using StoredProcedure result
+
+                SqlCommand cmdRetrieveIngredientName = new SqlCommand();
+                cmdRetrieveIngredientName.Connection = sqlConRecipes;
+                cmdRetrieveIngredientName.CommandText = "List_Ingredient_wIngredientId";
+                cmdRetrieveIngredientName.CommandType = System.Data.CommandType.StoredProcedure;
+                cmdRetrieveIngredientName.Parameters.Add(new SqlParameter("@idIngredient", newIngredientRecipe.Ingredient.Id));
+
+                SqlDataReader drIngredientName = cmdRetrieveIngredientName.ExecuteReader();
+
+                while (drIngredientName.Read())
+                {
+                    newIngredientRecipe.Ingredient.Name = drIngredientName[0].ToString();
+                }
+
+                SqlCommand cmdRetrieveMeasurementUnit = new SqlCommand();
+                cmdRetrieveMeasurementUnit.Connection = sqlConRecipes;
+                cmdRetrieveMeasurementUnit.CommandText = "List_MeasurementUnit_wMeasurementUnitId";
+                cmdRetrieveMeasurementUnit.CommandType = System.Data.CommandType.StoredProcedure;
+                cmdRetrieveMeasurementUnit.Parameters.Add(new SqlParameter("@MeasurementId", newIngredientRecipe.MeasurementUnit.Id));
+
+                SqlDataReader drMeasurementUnit = cmdRetrieveMeasurementUnit.ExecuteReader();
+
+                while (drMeasurementUnit.Read())
+                {
+                    newIngredientRecipe.MeasurementUnit.Name = drMeasurementUnit[0].ToString();
+                }
+
+                _ingredientRecipe.Add(newIngredientRecipe);
+            }
+
+            //Retrieve recipe steps in the recipe
+
+            SqlCommand cmdRetrieveRecipeStep = new SqlCommand();
+            cmdRetrieveRecipeStep.Connection = sqlConRecipes;
+            cmdRetrieveRecipeStep.CommandText = "List_All_RecipeStepsInRecipe";
+            cmdRetrieveRecipeStep.CommandType = System.Data.CommandType.StoredProcedure;
+
+            cmdRetrieveRecipeStep.Parameters.Add(new SqlParameter("@idRecipe", _idRecipe));
+
+            SqlDataReader drRecipeSteps = cmdRetrieveRecipeStep.ExecuteReader();
+
+            while (drRecipeSteps.Read())
+            {
+                RecipeStep newRecipeStep = new RecipeStep();
+                newRecipeStep.IdRecipeStep = (int)drRecipeSteps[1];
+                newRecipeStep.StepNr = (int)drRecipeSteps[2];
+                newRecipeStep.StepDescription = drRecipeSteps[3].ToString();
+
+                _recipesteps.Add(newRecipeStep);
+            }
+
+            //Retrieve dish categories in recipe
+
+            SqlCommand cmdRetrieveDishCategories = new SqlCommand();
+            cmdRetrieveDishCategories.Connection = sqlConRecipes;
+            cmdRetrieveDishCategories.CommandText = "List_RecipeCategories_wIdRecipe";
+            cmdRetrieveDishCategories.CommandType = System.Data.CommandType.StoredProcedure;
+
+            cmdRetrieveDishCategories.Parameters.Add(new SqlParameter("@idRecipe", _idRecipe));
+
+            SqlDataReader drRecipeCategories = cmdRetrieveDishCategories.ExecuteReader();
+
+            while (drRecipeCategories.Read())
+            {
+                DishCategory newDishCategory = new DishCategory();
+                newDishCategory.DishCategoryID = (int)drRecipeCategories[0];
+                newDishCategory.DishCategoryName = drRecipeCategories[1].ToString();
+
+                _dishCategories.Add(newDishCategory);
+            }
+
+            sqlConRecipes.Close();
+        }
         #endregion
         #region Methods
         public bool Insert()
@@ -189,7 +318,7 @@ namespace DAL
                 cmdInsertRecipeDishCategory.CommandType = System.Data.CommandType.StoredProcedure;
 
                 foreach (DishCategory dishCategory in _dishCategories)
-                {                    
+                {
                     cmdInsertRecipeDishCategory.Parameters.Clear();
                     cmdInsertRecipeDishCategory.Parameters.Add(new SqlParameter("@idRecipe", _idRecipe));
                     cmdInsertRecipeDishCategory.Parameters.Add(new SqlParameter("@idCategory", dishCategory.DishCategoryID));
@@ -197,6 +326,7 @@ namespace DAL
                     cmdInsertRecipeDishCategory.Transaction = objTrans;
                     cmdInsertRecipeDishCategory.ExecuteNonQuery();
                 }
+                objTrans.Commit();
             }
             catch (Exception ex)
             {
@@ -257,5 +387,95 @@ namespace DAL
             return ListOfRecipes;
         }
         #endregion
+    }
+    public class RecipeSearch
+    {
+        #region attributes
+        private int _idRecipe;
+        private string _recipeTitle;
+        #endregion
+        #region Properties
+        public int IdRecipe
+        {
+            get { return _idRecipe; }
+            set { _idRecipe = value; }
+        }
+        public string RecipeTitle
+        {
+            get { return _recipeTitle; }
+            set { _recipeTitle = value; }
+        }
+        #endregion
+        #region contructors
+        public RecipeSearch() { }
+        public RecipeSearch(int idRecipeSearch, string recipeTitleSearch)
+        {
+            _idRecipe = idRecipeSearch;
+            _recipeTitle = recipeTitleSearch;
+        }
+        #endregion
+        #region methods
+        //doing this as a Constructor in Recipe with the recipeId
+        //public Recipe BuildRecipeFromRecipeSearch(RecipeSearch selectedRecipeSearch)
+        //{
+        //    recipe selectedrecipe = new recipe();
+        //selectedrecipe.idrecipe = selectedrecipesearch.idrecipe;
+        //    selectedrecipe.namerecipe = selectedrecipesearch.recipetitle;
+
+        //    sqlconnection sqlconrecipes = new sqlconnection();
+        //    sqlconrecipes.connectionstring =
+        //            properties.settings.default.cnrecipes;
+
+        //    SqlCommand cmdRetrieveRecipe = new SqlCommand(); //criar e instanciar objeto do tipo SqlCommand
+        //    cmdRetrieveRecipe.Connection = sqlConRecipes; // definir a propriedade do objeto
+        //        cmdRetrieveRecipe.CommandText = "List_Recipe_From_Id";
+        //        cmdRetrieveRecipe.CommandType = System.Data.CommandType.StoredProcedure;
+
+        //        cmdRetrieveRecipe.Parameters.Add(new SqlParameter("@recipeId", selectedRecipe.IdRecipe));
+
+        //        sqlConRecipes.Open();
+
+        //        SqlDataReader drRecipe = cmdRetrieveRecipe.ExecuteReader();
+
+        //        while (drRecipe.Read())
+        //        {
+        //            selectedRecipe.NameRecipe = drRecipe[2].ToString();
+        //}
+
+        //sqlConRecipes.Close();
+
+        //    return selectedRecipe;
+        //}
+        #endregion
+    }
+    public static class RecipeSearchs
+    {
+        public static List<RecipeSearch> ListSearchResults(string recipeNameToSearch)
+        {
+            List<RecipeSearch> _listRecipeSearchs = new List<RecipeSearch>();
+            SqlConnection sqlConnection = new SqlConnection(
+                Properties.Settings.Default.cnRecipes); //criar a ligação à base de dados
+            SqlCommand sqlListRecipesByName = new SqlCommand(
+                "List_All_Recipes_by_Name", sqlConnection);
+            sqlListRecipesByName.Parameters.Add(new SqlParameter("@nameRecipe", recipeNameToSearch));
+
+            sqlListRecipesByName.CommandType = System.Data.CommandType.StoredProcedure;
+
+            sqlConnection.Open();
+
+            SqlDataReader drRecipeSearch = sqlListRecipesByName.ExecuteReader();
+
+            while (drRecipeSearch.Read())
+            {
+                RecipeSearch recipeSearch = new RecipeSearch();
+                recipeSearch.IdRecipe = (int)drRecipeSearch[0];
+                recipeSearch.RecipeTitle = drRecipeSearch[1].ToString();
+
+                _listRecipeSearchs.Add(recipeSearch);
+            }
+
+            sqlConnection.Close();
+            return _listRecipeSearchs;
+        }
     }
 }

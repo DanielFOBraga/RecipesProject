@@ -6,66 +6,81 @@
     <div class="container">
         <div class="row">
             <div class="col text-center">
+                <br />
                 <h2>Insert Recipe</h2>
+                <br />
                 <br />
             </div>
         </div>
         <div class="container-fluid">
-            <div class="row md-2 offset-3">
-                <div class="col-md-3">
-                    <asp:Label Text="Recipe title" runat="server" />
+            <div class="row justify-content-between">
+                <div class="col-8">
+                    <div class="row my-3">
+                        <div class="col-md-3 offset-2">
+                            <asp:Label Text="Recipe title" runat="server" />
+                        </div>
+                        <div class="col-md-6">
+                            <asp:TextBox ID="TextBoxRecipeName" runat="server" Width="200px"></asp:TextBox>
+                        </div>
+                    </div>
+                    <div class="row my-3">
+                        <div class="col-md-3 offset-2">
+                            <asp:Label Text="Number of doses" runat="server" />
+                        </div>
+                        <div class="col-md-6">
+                            <asp:TextBox ID="TextBoxNrofDoses" runat="server" TextMode="Number" min="1" Width="50px"></asp:TextBox>
+                        </div>
+                    </div>
+                    <div class="row my-3">
+                        <div class="col-md-3 offset-2">
+                            <asp:Label runat="server" Text="Recipe difficulty"></asp:Label>
+                        </div>
+                        <div class="col-md-6">
+                            <asp:DropDownList ID="DropDownListRecipeDifficulty" Width="200px" runat="server"></asp:DropDownList>
+                        </div>
+                    </div>
+                    <div class="row my-3">
+                        <div class="col-md-3 offset-2">
+                            <asp:Label runat="server" Text="Recipe preparation time"></asp:Label>
+                        </div>
+                        <div class="col-md-6">
+                            <asp:DropDownList ID="DropDownListTimeToMake" Width="200px" runat="server"></asp:DropDownList>
+                        </div>
+                    </div>
+                    <div class="row my-3">
+                        <div class="col-md-3 offset-2">
+                            <asp:Label runat="server" Text="Recipe Cost"></asp:Label>
+                        </div>
+                        <div class="col-md-6">
+                            <asp:DropDownList ID="DropDownListCostRange" Width="200px" runat="server"></asp:DropDownList>
+                        </div>
+                    </div>
+                    <div class="row my-3">
+                        <div class="col-md-3 offset-2">
+                            <asp:Label runat="server" Text="Cuisine type"></asp:Label>
+                        </div>
+                        <div class="col-md-6">
+                            <asp:DropDownList ID="DropDownListCuisineType" Width="200px" runat="server"></asp:DropDownList>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    <asp:TextBox ID="TextBoxRecipeName" runat="server" Width="200px"></asp:TextBox>
+                <div class="col-4">
+                    <div class="row my-3">
+                        <asp:Label runat="server" Text="Recipe categories"></asp:Label>
+                    </div>
+                    <div class="row my-3">
+                        <asp:CheckBoxList ID="CheckBoxListCategory" RepeatColumns="2" runat="server" CssClass="checkboxlist" RepeatLayout="table"></asp:CheckBoxList>
+                    </div>
                 </div>
+
             </div>
-            <div class="row my-2 offset-3">
-                <div class="col-md-3">
-                    <asp:Label Text="Number of doses" runat="server" />
-                </div>
-                <div class="col-md-6">
-                    <asp:TextBox ID="TextBoxNrofDoses" runat="server" TextMode="Number" min="1" Width="50px"></asp:TextBox>
-                </div>
-            </div>
-            <div class="row my-2 offset-3">
-                <div class="col-md-3">
-                    <asp:Label runat="server" Text="Recipe difficulty"></asp:Label>
-                </div>
-                <div class="col-md-6">
-                    <asp:DropDownList ID="DropDownListRecipeDifficulty" Width="150px" runat="server"></asp:DropDownList>
-                </div>
-            </div>
-            <div class="row my-2 offset-3">
-                <div class="col-md-3">
-                    <asp:Label runat="server" Text="Recipe preparation time"></asp:Label>
-                </div>
-                <div class="col-md-6">
-                    <asp:DropDownList ID="DropDownListTimeToMake" Width="150px" runat="server"></asp:DropDownList>
-                </div>
-            </div>
-            <div class="row my-2 offset-3">
-                <div class="col-md-3">
-                    <asp:Label runat="server" Text="Recipe Cost"></asp:Label>
-                </div>
-                <div class="col-md-6">
-                    <asp:DropDownList ID="DropDownListCostRange" Width="150px" runat="server"></asp:DropDownList>
-                </div>
-            </div>
-            <div class="row my-2 offset-3">
-                <div class="col-md-3">
-                    <asp:Label runat="server" Text="Cuisine type"></asp:Label>
-                </div>
-                <div class="col-md-6">
-                    <asp:DropDownList ID="DropDownListCuisineType" Width="150px" runat="server"></asp:DropDownList>
-                </div>
-            </div>
-            <div class="row my-2 offset-3">
+
+            <%--<div class="row my-2 offset-3">
                 <asp:Label runat="server" Text="Recipe categories"></asp:Label>
             </div>
             <div class="row my-2 offset-3">
-                <asp:CheckBoxList ID="CheckBoxListCategory" runat="server"></asp:CheckBoxList>
-            </div>
-
+                
+            </div>--%>
         </div>
 
         <div class="row">
